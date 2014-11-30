@@ -2,7 +2,7 @@
 *   ESERCIZIO : compilare ed eseguire il sorgente presente
 *   poi modificarlo in modo che stampi l'ip del client
 *
-*
+*   SOLUZIONE v0.1
 */
 #include <stdio.h>
 #include <string.h>
@@ -38,6 +38,18 @@ int main(void)
                 num = sequence();
                 UDP_send(ip_address, port_number, (void*)&num, sizeof(unsigned int));
                 printf("…inviato numero %u.\r\n", num);
+                //soluzione
+                printf("... all'indirizzo %lu \r\n", ip_address);
+                //
+                // ma invece del consueto indirizzo ip es. 127.0.0.1
+                // stampa un numero intero es.2130706433
+                // che ne è la rappresentazione binaria a 32 bit :
+                // 01111111 00000000 00000000 00000001
+                // 127      0        0        1
+                // occorre convertire l'integer in una stringa
+                // di numeri separati dai punti
+                // vedi soluzione v.02
+
             }
         }
     }
