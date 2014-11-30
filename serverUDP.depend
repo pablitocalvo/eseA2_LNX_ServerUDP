@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1417291722 source:/home/paolo/CodeBlocksProject/serverUDP/UDP.c
+	<unistd.h>
+	<string.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	"UDP.H"
+
+1417291722 /home/paolo/CodeBlocksProject/serverUDP/UDP.H
+
+1417347840 source:/home/paolo/CodeBlocksProject/serverUDP/server.c
+	<stdio.h>
+	<string.h>
+	"UDP.H"
+	"sequence.h"
+	<netinet/in.h>
+	<arpa/inet.h>
+
+1417291722 /home/paolo/CodeBlocksProject/serverUDP/sequence.h
+	<stdio.h>
+
