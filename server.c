@@ -2,13 +2,16 @@
 *   ESERCIZIO : compilare ed eseguire il sorgente presente
 *   poi modificarlo in modo che stampi l'ip del client
 *
-*   SOLUZIONE v0.2
+*   SOLUZIONE v0.3
 */
 #include <stdio.h>
 #include <string.h>
 
 #include "UDP.H"
 #include "sequence.h"
+
+#include <netinet/in.h>
+#include <arpa/inet.h>
 
 
 int main(void)
@@ -62,14 +65,20 @@ int main(void)
                 //    };
 
                 struct in_addr add;
-                add.s_addr=ip_address;
 
-                ip_address_string=inet_ntoa(add);
-
-                printf("... all'indirizzo %s \r\n", ip_address_string);
 
                 // ma stampa l'indirizzo ad ordine invertito ...
                 // vedi soluzione v0.3
+                // occorre usare la funzione
+                //      htonl( );
+                // riferimenti
+                //      http://beej.us/guide/bgnet/output/html/multipage/ipstructsdata.html#byteorder
+
+                add.s_addr=htonl( ip_address );
+
+                char *ip_address_string;
+                ip_address_string=inet_ntoa(add);
+                printf("... all'indirizzo %s \r\n", ip_address_string);
             }
         }
     }
