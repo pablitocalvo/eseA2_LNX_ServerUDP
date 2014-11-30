@@ -10,6 +10,8 @@
 #include "UDP.H"
 #include "sequence.h"
 
+#include <netinet/in.h>
+#include <arpa/inet.h>
 
 int main(void)
 {
@@ -64,7 +66,10 @@ int main(void)
                 struct in_addr add;
                 add.s_addr=ip_address;
 
+                char * ip_address_string;
                 ip_address_string=inet_ntoa(add);
+
+                printf("... all'indirizzo %s \r\n", ip_address_string);
 
                 // ma stampa l'indirizzo ad ordine invertito ...
                 // vedi soluzione v0.3
