@@ -2,7 +2,7 @@
 *   ESERCIZIO : compilare ed eseguire il sorgente presente
 *   poi modificarlo in modo che stampi l'ip del client
 *
-*   SOLUZIONE v0.1
+*   SOLUZIONE v0.2
 */
 #include <stdio.h>
 #include <string.h>
@@ -49,7 +49,25 @@ int main(void)
                 // occorre convertire l'integer in una stringa
                 // di numeri separati dai punti
                 // vedi soluzione v.02
+                // abbiamo a disposizione la funzione
+                //
+                //      char *inet_ntoa(struct in_addr addr)
+                //
+                // che prende in input l'indirizzo strutturato
+                // e restituisce la stringa (puntatore ad una ..)
+                //
+                // Internet address (a structure for historical reasons)
+                //  struct in_addr {
+                //      uint32_t s_addr; // that's a 32-bit int (4 bytes)
+                //    };
 
+                struct in_addr add;
+                add.s_addr=ip_address;
+
+                ip_address_string=inet_ntoa(add);
+
+                // ma stampa l'indirizzo ad ordine invertito ...
+                // vedi soluzione v0.3
             }
         }
     }
